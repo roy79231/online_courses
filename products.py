@@ -1,4 +1,4 @@
-#製作及理解二維清單
+#製作及理解二維清單 #藉由填入的數據直接做出一個表單
 product = []
 while True :
 	name = input('請輸入商品名稱:')
@@ -14,3 +14,7 @@ print(product[0][1])
 
 for f in product :
 	print(f[0],'的價格為',f[1])
+
+with open('products.csv','w') as s :
+	for g in product :
+		s.write(g[0]+','+g[1]+'\n')
