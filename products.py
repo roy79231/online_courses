@@ -12,4 +12,5 @@ while True :
 print(product)
 print(product[0][1])
 
-
+for f in product :
+	print(f[0],'的價格為',f[1])
