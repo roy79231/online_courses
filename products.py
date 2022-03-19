@@ -1,5 +1,17 @@
 #製作及理解二維清單 #藉由填入的數據直接做出一個表單
+
+#讀取檔案
 product = []
+with open('products.csv','r',encoding='utf-8') as k:
+	for line in k :
+		if line == '商品,價格' :
+			continue
+		t = line.strip().split(',')
+		name = t[0]
+		price = t[1]
+		product.append([t[0],t[1]])
+print(product)
+#讓使用者輸入
 while True :
 	name = input('請輸入商品名稱:')
 	if name == 'q' :
@@ -10,11 +22,10 @@ while True :
 	p.append(price)
 	product.append(p)      #8~11行=products.append([name],[price])
 print(product)
-print(product[0][1])
-
+#印出所有商品價格
 for f in product :
 	print(f[0],'的價格為',f[1])
-
+#寫入檔案
 with open('products.csv','w',encoding='utf-8') as s :
 	s.write('商品,價格\n')
 	for g in product :
