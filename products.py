@@ -1,15 +1,19 @@
 #製作及理解二維清單 #藉由填入的數據直接做出一個表單
-
-#讀取檔案
+import os 
 product = []
-with open('products.csv','r',encoding='utf-8') as k:
-	for line in k :
-		if line == '商品,價格' :
-			continue
-		t = line.strip().split(',')
-		name = t[0]
-		price = t[1]
-		product.append([t[0],t[1]])
+#檢查檔案是否存在
+if os.path.isfile('products.csv') :
+	with open('products.csv','r',encoding='utf-8') as k:
+		for line in k :
+			if '商品,價格' in line :
+				continue
+			t = line.strip().split(',')
+			name = t[0]
+			price = t[1]
+			product.append([t[0],t[1]])
+else :
+	print('找不到檔案qq')
+
 print(product)
 #讓使用者輸入
 while True :
