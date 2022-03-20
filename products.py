@@ -40,12 +40,12 @@ def main():
 	filename = 'products.csv'
 	if os.path.isfile(filename) :
 		print('有檔案喔')
-		product = read_file('products.csv')
+		product = read_file(filename)
 	else :
 		print('找不到檔案')
 
 	product = user_input(product)
 	print_product(product)
-	write_file('products.csv',product)
+	write_file(filename,product)
 
 main()
